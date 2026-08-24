@@ -13,6 +13,9 @@ kubeconfig
 *.gguf
 *.bin
 *.pt
+*.ckpt
+*.h5
+*.npz
 *.onnx
 models/
 .cache/
@@ -21,6 +24,7 @@ huggingface/
 # Python
 .venv/
 venv/
+env/
 __pycache__/
 *.py[cod]
 .pytest_cache/

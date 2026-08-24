@@ -255,7 +255,7 @@ if [ "$DOCKER_OK" = "1" ]; then
   if docker image inspect nvidia/cuda:12.4.1-runtime-ubuntu22.04 >/dev/null 2>&1; then
     record pass "base image (cuda)" "nvidia/cuda:12.4.1-runtime-ubuntu22.04 is local"
   else
-    record warn "base image (cuda)" "about 2 GB, needed on week 2 day 3; run: docker pull nvidia/cuda:12.4.1-runtime-ubuntu22.04"
+    record warn "base image (cuda)" "about 2 GB, needed on week 2 day 4; run: docker pull nvidia/cuda:12.4.1-runtime-ubuntu22.04"
   fi
 fi
 
@@ -318,15 +318,15 @@ fi
 printf '\n%sReport:%s %s\n' "$B" "$N" "$REPORT"
 
 if [ "$BLOCKING" -gt 0 ]; then
-  printf '\n%s%d blocking problem(s).%s Each one breaks something on day 1. Fix them, or\n' "$R" "$BLOCKING" "$N"
+  printf '\n%s%d blocking problem(s).%s Each one breaks something in the labs. Fix them, or\n' "$R" "$BLOCKING" "$N"
   printf 'submit this report anyway and say what you tried. A machine flagged now gets\n'
-  printf 'fixed; one discovered on day 1 does not.\n'
+  printf 'fixed; one discovered mid-lab does not.\n'
   printf '\nVERIFY-ENV: FAIL (%d blocking)\n' "$BLOCKING"
   exit 1
 fi
 
 if [ "$WARNINGS" -gt 0 ]; then
-  printf '\n%d warning(s). None of these stop day 1, and all of them are worth clearing.\n' "$WARNINGS"
+  printf '\n%d warning(s). None of these stop a lab, and all of them are worth clearing.\n' "$WARNINGS"
   printf '\nVERIFY-ENV: PASS WITH WARNINGS\n'
   exit 0
 fi
