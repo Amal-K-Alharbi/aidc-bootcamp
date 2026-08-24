@@ -9,6 +9,8 @@ The service exposes an OpenAI-compatible API for the model:
 
 `Qwen/Qwen2.5-0.5B-Instruct`
 
+![Models](screenshots\Screenshot 2026-08-24 165210.png)
+
 ## Environment
 
 - Python 3.11
@@ -31,6 +33,8 @@ Example response:
 }
 ````
 
+![Health endpoint](screenshots\Screenshot 2026-08-24 164955.png)
+
 ### GET /v1/models
 
 Returns the model served by the API.
@@ -40,6 +44,7 @@ The endpoint was tested successfully and returned:
 ```text
 Qwen/Qwen2.5-0.5B-Instruct
 ```
+![Models endpoint](screenshots\Screenshot 2026-08-24 173709.png)
 
 ### POST /v1/chat/completions
 
@@ -65,6 +70,7 @@ Example response:
 ```text
 Hello.
 ```
+![Models endpoint](screenshots\Screenshot 2026-08-24 173709.png)
 
 The response also includes the completion ID, model, finish reason, and token usage.
 
@@ -109,4 +115,5 @@ The following endpoints were tested successfully:
 * `/v1/models`
 * `/v1/chat/completions`
 
+![Chat completion](screenshots\Screenshot 2026-08-24 185516.png)
 The service was also verified using the provided `verify.py` script.
