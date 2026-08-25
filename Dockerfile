@@ -2,7 +2,10 @@ FROM python:3.11-slim
 
 # a non-root user whose home holds the model cache; the run command mounts
 # a volume exactly here, so the path must exist and be writable
-RUN useradd --create-home app
+RUN useradd --create-home app && \
+    mkdir -p /home/app/.cache/huggingface && \
+    chown -R app:app /home/app/.cache
+
 ENV HF_HOME=/home/app/.cache/huggingface
 
 WORKDIR /app
