@@ -69,7 +69,7 @@ Expected response:
 
 This confirms that the API is running and the model is ready.
 
-**[IMAGE 1 — Screenshot showing the `/health` request and the `{"status":"ok",...}` response.]**
+
 
 ## Chat Completion Test
 
@@ -100,7 +100,7 @@ Example:
 }
 ```
 
-**[IMAGE 2 — Screenshot showing the successful `/v1/chat/completions` request and response.]**
+
 
 ## Verification
 
@@ -131,11 +131,11 @@ completion: ok
 GREEN CHECK: PASS
 ```
 
-**[IMAGE 3 — Screenshot showing the complete `verify.sh` output ending with `GREEN CHECK: PASS`.]**
+
 
 ## Naive vs Optimized Image
 
-A `Dockerfile.naive` was also tested as a baseline.
+A `Dockerfile.naive` was built as a baseline to measure the impact of the optimizations.
 
 The naive image used:
 
@@ -145,9 +145,23 @@ FROM python:3.11
 
 and installed the full requirements directly.
 
-During the build, PyTorch pulled a large set of CUDA-related dependencies even though the service was intended to run on CPU. The build took a long time and eventually failed while downloading a large CUDA dependency.
+The final measured image sizes were:
 
-The production Dockerfile was designed to avoid this unnecessary overhead and produce a more suitable CPU serving image.
+| Image          |    Size |
+| -------------- | ------: |
+| Naive build    | 16.5 GB |
+| Slim CPU build | 1.61 GB |
+
+The optimized image is approximately 14.89 GB smaller.
+
+The main optimizations were:
+
+Using python:3.11-slim instead of python:3.11
+Installing the CPU-only PyTorch wheel using the PyTorch CPU index
+Using pip --no-cache-dir
+Using .dockerignore to exclude unnecessary files from the build context
+
+The naive image was much larger mainly because the default PyTorch installation pulled CUDA-related dependencies that were unnecessary for this CPU-only serving stack.
 
 ## Result
 
