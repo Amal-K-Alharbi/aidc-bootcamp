@@ -76,6 +76,8 @@ amalk54/aidc-serving:gpu-v1
 
 ## 4. Colab T4 Test
 
+[Open the Colab notebook](https://colab.research.google.com/drive/1b0jlfPFTeusZLj2Mo-x1eH4YIcMIEBOI#scrollTo=qrnVZxy0j4j0)
+
 A Google Colab runtime was configured with a Tesla T4 GPU.
 
 Verified that CUDA was available:
