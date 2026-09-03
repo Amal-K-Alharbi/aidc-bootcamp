@@ -1,0 +1,98 @@
+{
+  "gpu_hourly_usd": 0.35,
+  "target_p95_s": 2.0,
+  "levels": [
+    {
+      "concurrency": 1,
+      "tokens_per_s": 84.49,
+      "ttft_p50_s": 0.0529,
+      "ttft_p95_s": 0.0726,
+      "latency_p95_s": 1.5247,
+      "errors": 0,
+      "ok": 20,
+      "wall_s": 23.706,
+      "cost_per_million_tokens_usd": 1.1507
+    },
+    {
+      "concurrency": 2,
+      "tokens_per_s": 167.0,
+      "ttft_p50_s": 0.052,
+      "ttft_p95_s": 0.0904,
+      "latency_p95_s": 1.534,
+      "errors": 0,
+      "ok": 20,
+      "wall_s": 11.994,
+      "cost_per_million_tokens_usd": 0.5822
+    },
+    {
+      "concurrency": 4,
+      "tokens_per_s": 280.33,
+      "ttft_p50_s": 0.0637,
+      "ttft_p95_s": 0.1195,
+      "latency_p95_s": 1.7325,
+      "errors": 0,
+      "ok": 20,
+      "wall_s": 7.145,
+      "cost_per_million_tokens_usd": 0.3468
+    },
+    {
+      "concurrency": 8,
+      "tokens_per_s": 473.88,
+      "ttft_p50_s": 0.1106,
+      "ttft_p95_s": 0.1676,
+      "latency_p95_s": 1.9439,
+      "errors": 0,
+      "ok": 20,
+      "wall_s": 4.227,
+      "cost_per_million_tokens_usd": 0.2052
+    },
+    {
+      "concurrency": 16,
+      "tokens_per_s": 670.76,
+      "ttft_p50_s": 0.2461,
+      "ttft_p95_s": 0.2501,
+      "latency_p95_s": 2.4889,
+      "errors": 0,
+      "ok": 20,
+      "wall_s": 3.11,
+      "cost_per_million_tokens_usd": 0.1449
+    }
+  ],
+  "knee": {
+    "concurrency": 8,
+    "tokens_per_s": 473.88,
+    "ttft_p50_s": 0.1106,
+    "ttft_p95_s": 0.1676,
+    "latency_p95_s": 1.9439,
+    "errors": 0,
+    "ok": 20,
+    "wall_s": 4.227,
+    "cost_per_million_tokens_usd": 0.2052
+  },
+  "scale_out_plan": [
+    {
+      "required_tokens_per_s": 473.88,
+      "replicas_needed": 1,
+      "total_hourly_cost_usd": 0.35,
+      "effective_p95_s": 1.9439
+    },
+    {
+      "required_tokens_per_s": 710.8199999999999,
+      "replicas_needed": 2,
+      "total_hourly_cost_usd": 0.7,
+      "effective_p95_s": 1.9439
+    },
+    {
+      "required_tokens_per_s": 947.76,
+      "replicas_needed": 2,
+      "total_hourly_cost_usd": 0.7,
+      "effective_p95_s": 1.9439
+    },
+    {
+      "required_tokens_per_s": 1421.6399999999999,
+      "replicas_needed": 3,
+      "total_hourly_cost_usd": 1.05,
+      "effective_p95_s": 1.9439
+    }
+  ]
+}
