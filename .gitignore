@@ -35,3 +35,7 @@ __pycache__/
 nohup.out
 .DS_Store
 .ipynb_checkpoints/
+
+
+aidc-team11-warmup.git/
+serving-stack.git/
